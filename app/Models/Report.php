@@ -10,8 +10,9 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Report extends Model
 {
     use HasFactory;
+    protected $guarded = [];
 
-    public function reports(): BelongsTo{
+    public function user(): BelongsTo{
         return $this ->belongsTo(User::class);
     }
 
