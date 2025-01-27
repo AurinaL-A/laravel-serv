@@ -43,7 +43,7 @@ class User extends Authenticatable
     public function reports(): HasMany{
         return $this ->hasMany(Report::class);
     }
-    const ADMIN_ROLE = 'admin';
+    const ADMIN_ROLE = 'adminka';
 
     public function isAdmin(){
         return $this->role === self::ADMIN_ROLE;

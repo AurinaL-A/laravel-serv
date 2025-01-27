@@ -28,10 +28,13 @@ Route::get('/dashboard', function () {
 
 
 Route::middleware('auth')->group(function () {
+    Route::get('/create',[ReportController::class,'create'])->name('report.create');
+    Route::get('/store',[ReportController::class,'store'])->name('report.store');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
 
 require __DIR__.'/auth.php';
 
@@ -39,10 +42,7 @@ Route::get('/report', [ReportController::class, 'index'])
 ->name('report.index')
 ->middleware(['auth', 'verified'])->name('report');
 
-
-Route::get('/createreport', function () {
-    return view('report.create')->name('report.create');
-});
+Route::post('/report',[ReportController::class,'store'])->name('report.store');
 
 
 Route::middleware((Admin::class))->group(function () {
