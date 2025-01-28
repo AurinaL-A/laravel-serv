@@ -45,6 +45,7 @@ Route::get('/report', [ReportController::class, 'index'])
 Route::post('/report',[ReportController::class,'store'])->name('report.store');
 
 
-Route::middleware((Admin::class))->group(function () {
-    Route::get('/admin', [AdminController::class, 'index'])->name('admin.admin');
+Route::middleware((Admin::class))->group(function(){
+    Route::get('/admin', [AdminController::class, 'index']) -> name('admin.admin');
+    Route::put('/update', [ReportController::class, 'update'])->name('report.update');
 });

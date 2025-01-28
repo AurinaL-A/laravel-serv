@@ -37,12 +37,24 @@ class ReportController extends Controller
             'status' => 1,
         ]);
 
-        return redirect()->route('dashboard');
+        return redirect()->route('report.index');
     }
 
     public function create()
     {
         $services = Service::all();
         return view('report.create', compact('services'));
+    }
+
+    public function update(Request $request) {
+        $request->validate([
+            'status' => ['required'],
+            'id' => ['required']
+        ]);
+
+        Report::where('id', $request->id)->update([
+            'status' => $request->status,
+        ]);
+        return redirect()->back();
     }
 }
