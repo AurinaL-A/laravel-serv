@@ -7,7 +7,7 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
-            <form class="p-4 md:p-5 space-y-4" method="POST" action="{{route('report.store')}}">
+            <form enctype="multipart/form-data" class="p-4 md:p-5 space-y-4" method="POST" action="{{route('report.store')}}">
                 @csrf
                 <div class="flex flex-col w-50">
                     <!-- address -->
@@ -53,6 +53,12 @@
                             @endforeach
                         </select>
                         <x-input-error :messages="$errors->get('service')" class="mt-2" />
+                    </div>
+
+                    <div>
+                        <x-input-label for="path_img" :value="__('Время')" />
+                        <input type='file' id="path_img" class="block mt-1" name="path_img" required />
+                        <x-input-error :messages="$errors->get('path_img')" class="mt-2" />
                     </div>
 
                     <!-- Status -->
