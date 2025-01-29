@@ -9,35 +9,35 @@
 
             <form class="p-4 md:p-5 space-y-4" method="POST" action="{{route('report.store')}}">
                 @csrf
-                <div class="flex flex-col">
+                <div class="flex flex-col w-50">
                     <!-- address -->
                     <div class="py-2">
-                        <x-input-label for="address" :value="__('Address')" />
-                        <x-text-input id="address" name="address" type="text" class="block mt-1 py-2  " :placeholder="__('Введите адрес')" required />
+                        <x-input-label for="address" :value="__('Адрес')" />
+                        <x-text-input id="address" name="address" type="text" class="w-1/2 block mt-1 py-2  " :placeholder="__('Введите адрес')" required />
                         <x-input-error :messages="$errors->get('address')" class="mt-2" />
                     </div>
                     <!-- address -->
                     <div class="py-2">
-                        <x-input-label for="contact" :value="__('Contact')" />
-                        <x-text-input id="contact" name="contact" type="text" class="block mt-1 py-2  " :placeholder="__('Введите ваши контакты')" required />
+                        <x-input-label for="contact" :value="__('Контакты')" />
+                        <x-text-input id="contact" name="contact" type="text" class="w-1/2 block mt-1 py-2  " :placeholder="__('Введите ваши контакты')" required />
                         <x-input-error :messages="$errors->get('contact')" class="mt-2" />
                     </div>
                     <!-- address -->
                     <div class="py-2">
-                        <x-input-label for="date" :value="__('Date')" />
-                        <x-text-input id="date" name="date" type="date" class="block mt-1 py-2  " :placeholder="__('Введите нужную дату')" required />
+                        <x-input-label for="date" :value="__('Дата')" />
+                        <x-text-input id="date" name="date" type="date" class="w-1/2 block mt-1 py-2  " :placeholder="__('Введите нужную дату')" required />
                         <x-input-error :messages="$errors->get('date')" class="mt-2" />
                     </div>
                     <!-- address -->
                     <div class="py-2">
-                        <x-input-label for="time" :value="__('Time')" />
-                        <x-text-input id="time" name="time" type="time" class="block mt-1 py-3  " :placeholder="__('Введите адрес')" required />
+                        <x-input-label for="time" :value="__('Время')" />
+                        <x-text-input id="time" name="time" type="time" class="w-1/2 block mt-1 py-3  " :placeholder="__('Введите адрес')" required />
                         <x-input-error :messages="$errors->get('time')" class="mt-2" />
                     </div>
                     <!-- address -->
                     <div class="py-2">
                         <x-input-label for="payment" :value="__('Оплата')" />
-                        <select id="payment" class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" name="payment" required>
+                        <select id="payment" class="w-1/2 border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" name="payment" required>
                             <option value='Наличный'>Наличный</option>
                             <option value='Безналичный'>Безналичный</option>
                             <option value='Частичный'>Частичный</option>
@@ -47,7 +47,7 @@
 
                     <div class="py-2">
                         <x-input-label for="service" :value="__('Вид услуги')" />
-                        <select id="service" class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm " name="service" required>
+                        <select id="service" class="w-1/2 border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm " name="service" required>
                             @foreach($services as $service)
                             <option value='{{$service->id}}'>{{$service->title}}</option>
                             @endforeach
